@@ -1,4 +1,4 @@
-import java.util.scanner;
+import java.util.Scanner;
 public class GameTest
 {
     //main class to execute our program
@@ -14,21 +14,21 @@ public class GameTest
     int userselection = scanner.nextInt();
 
     Genre genre;
-    switch (user selection)
+    switch (userselection)
     {
         case 1:
             genre = new ActionGenre();
             break;
         case 2:
-            genre = new Comedygenre();
+            genre = new ComedyGenre();
             break;
-        defualt:
+        default:
         System.out.println("Not a valid selction you will start at comedy");
         genre = new ActionGenre();
         break;
     }
-    Hangman newgame = Hangman(Genre);
-    newgame.play();
+    Hangman newgame = new Hangman(genre);
+    newgame.start();
     }
 
 }

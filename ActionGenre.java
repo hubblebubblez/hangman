@@ -2,6 +2,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.List;
 import java.util.ArrayList;
+import java.io.FileReader;
 
 public class ActionGenre implements Genre
 {
@@ -13,9 +14,9 @@ public class ActionGenre implements Genre
          try (BufferedReader reader = new BufferedReader(new FileReader("ActionGenre.txt")))
           {  
             String line;
-            while ((line = reader.readLine() != null))
+            while ((line = reader.readLine()) != null)
             {
-                line = tine.trim(); 
+                line = line.trim(); 
                 // good for presentation 
                 //make sure to check line is not empty
                 if(!line.isEmpty())
@@ -27,7 +28,7 @@ public class ActionGenre implements Genre
           } 
              catch(IOException e)
           {
-            System.out.println("Error was not able to read words from ActionGenre.txt")
+            System.out.println("Error was not able to read words from ActionGenre.txt");
           } 
     }
     @Override
@@ -43,7 +44,4 @@ public class ActionGenre implements Genre
 
     }
     //specific methos implementation for this class
-    public List<String> getWordsUsed()
-    {
-        return wordbankused;
-    }
+}

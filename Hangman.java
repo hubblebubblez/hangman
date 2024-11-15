@@ -1,3 +1,4 @@
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -5,7 +6,6 @@ public class Hangman
 {
     private String WordGuess;
     private StringBuilder GuessCurrent;
-
     private int RemainingAttempts = 5;
     private Genre genre;
 
@@ -13,21 +13,20 @@ public class Hangman
     {
         this.genre = genre;
         List<String> wordbankused = genre.getWordsUsed();
-
-    }
+    
    //start selecting a word to use
    if (wordbankused.isEmpty())
-   {
+    {
     System.out.println("No words are able to choose from");
     return;
-   }
-
+    }
+    }
    Random random = new Random();
    setWordGuess(wordbankused.get(random.nextInt(wordbankused.size())));
    setGuessCurrent(new StringBuilder("_".repeat(getWordGuess().length())));
 
 
-}
+
 //method
 public String getWordGuess()
 {
@@ -55,6 +54,7 @@ private void setRemainingAttempts( int RemainingAttempts)
     this.RemainingAttempts = RemainingAttempts;
 }
 
+
 public void start()
 {
   if (getWordGuess()==null) //meaning its empty
@@ -80,7 +80,7 @@ public void start()
                 if(getWordGuess().charAt(i) == attempt )
                 {
                     //sets to attempt
-                    getGuessCurrent().setCharAt(i,attempt)
+                    getGuessCurrent().setCharAt(i,attempt);
                 }
             }
         }else{
@@ -92,7 +92,7 @@ public void start()
     //now to see if they won 
     if(getGuessCurrent().indexOf("_") < 0)
     {
-        System.out.printlin("Congratsss You Won! our game of Hangman"+ getWordGuess());
+        System.out.println("Congratsss You Won! our game of Hangman"+ getWordGuess());
         //attempts if they won
     }else{
         System.out.println("Game is over the word was "+ getWordGuess());
